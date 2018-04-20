@@ -11,8 +11,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.post('/add-numbers', (req, res) => {
     calculations.push(req.body);
-    console.log(calculations);
-    res.sendStatus(200);
+    let x = +req.body.x;
+    let y = +req.body.y;
+    let result = {result: x+y};
+    console.log(result);    
+    res.send(result);
 });
 
 app.listen(PORT, () => {

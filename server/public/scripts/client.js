@@ -26,6 +26,7 @@ function addNumbers() {
         data: newObject
     }).then(function(response) {
         console.log(response);
+        $('#answerSpan').text(`${response.result}`);
     });
 }
 
