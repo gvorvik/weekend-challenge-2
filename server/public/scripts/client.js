@@ -14,6 +14,19 @@ function onReady() {
 function addNumbers() {
     console.log('a button click');
 
+    let newObject = {
+        x: $('#firstNumber').val(),
+        y: $('#secondNumber').val(),
+        type: 'add'
+    };
+
+    $.ajax({
+        method: "POST",
+        url: "/add-numbers",
+        data: newObject
+    }).then(function(response) {
+        console.log(response);
+    });
 }
 
 function subtractNumbers() {
