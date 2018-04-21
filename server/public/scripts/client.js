@@ -8,7 +8,7 @@ function onReady() {
     $('#subtractButton').on('click', subtractNumbers);
     $('#multiplyButton').on('click', multiplyNumbers);
     $('#divideButton').on('click', divideNumbers);
-    // $('#clearButton').on('click', clearCalculations);
+    $('#clearButton').on('click', clearCalculations);
 }
 
 
@@ -48,7 +48,6 @@ function subtractNumbers() {
 }
 
 function multiplyNumbers() {
-    console.log('m button click');
     let newObject = {
         x: $('#firstNumber').val(),
         y: $('#secondNumber').val(),
@@ -67,7 +66,6 @@ function multiplyNumbers() {
 }
 
 function divideNumbers() {
-    console.log('d button click');
     let newObject = {
         x: $('#firstNumber').val(),
         y: $('#secondNumber').val(),
@@ -85,11 +83,6 @@ function divideNumbers() {
     });
 }
 
-function responseFunction() {
-    $('#answerSpan').text(`${response.result}`);
-    getCalculations(); 
-}
-
 function getCalculations() {
     $.ajax({
         method: "GET",
@@ -98,9 +91,19 @@ function getCalculations() {
     .then(function (response) {
         $('#previousCalculationsList').empty();
         for(let calculation of response) {
-            console.log(calculation);
             $('#previousCalculationsList').prepend(`<li>${calculation.x} 
             ${calculation.assignment} ${calculation.y} = ${calculation.result}</li>`);
         }
+    });
+}
+
+function clearCalculations() {
+    $.ajax({
+        type: "POST",
+        url: "/clear-calculations",
+        data: {}
+    })
+    .then(function(response) {
+        $('#previousCalculationsList').empty();
     });
 }

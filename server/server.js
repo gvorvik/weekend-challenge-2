@@ -53,6 +53,15 @@ app.get('/get-calculations', (req, res) => {
     res.send(calculations);
 });
 
+app.post('/clear-calculations', (req, res) => {
+    console.log(calculations);
+    while(calculations.length > 0) {
+        calculations.pop();
+    }
+    console.log(calculations);
+    res.sendStatus(200);
+});
+
 app.listen(PORT, () => {
     console.log(`Listening on Port ${PORT}`);
 });
