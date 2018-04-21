@@ -25,6 +25,7 @@ History:
 4 - 2 = 2
 4 * 3 = 12
 3 + 6 = 9
+
 HARD MODE:
 Convert the input fields for the two values to Buttons. So the experience would allow the user to click on a numerical button, then a mathematical operation, then a numerical button again. Then have an equal button that sends all of the information to the server.
 

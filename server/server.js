@@ -10,12 +10,47 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 app.post('/add-numbers', (req, res) => {
-    calculations.push(req.body);
     let x = +req.body.x;
     let y = +req.body.y;
-    let result = {result: x+y};
-    console.log(result);    
+    let result = {result: x+y}; 
+    req.body.assignment = '+';
+    req.body.result = result.result; 
+    calculations.push(req.body);  
     res.send(result);
+});
+
+app.post('/subtract-numbers', (req, res) => {
+    let x = +req.body.x;
+    let y = +req.body.y;
+    let result = {result: x-y};
+    req.body.assignment = '-';
+    req.body.result = result.result;
+    calculations.push(req.body);
+    res.send(result);
+});
+
+app.post('/multiply-numbers', (req, res) => {
+    let x = +req.body.x;
+    let y = +req.body.y;
+    let result = {result: x*y};
+    req.body.assignment = '*';
+    req.body.result = result.result;
+    calculations.push(req.body);
+    res.send(result);
+});
+
+app.post('/divide-numbers', (req, res) => {
+    let x = +req.body.x;
+    let y = +req.body.y;
+    let result = {result: x/y};
+    req.body.assignment = '/';
+    req.body.result = result.result;
+    calculations.push(req.body);
+    res.send(result);
+});
+
+app.get('/get-calculations', (req, res) => {
+    res.send(calculations);
 });
 
 app.listen(PORT, () => {
