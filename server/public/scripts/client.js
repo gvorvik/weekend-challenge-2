@@ -23,7 +23,6 @@ function addNumbers() {
         url: "/add-numbers",
         data: newObject
     }).then(function(response) {
-        console.log(response);
         $('#answerSpan').text(`${response.result}`);
         getCalculations(); 
     });
@@ -43,7 +42,6 @@ function subtractNumbers() {
         data: newObject
     })
     .then(function(response) {
-        console.log(response);
         $('#answerSpan').text(`${response.result}`);
         getCalculations();        
     });
