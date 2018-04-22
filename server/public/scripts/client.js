@@ -4,13 +4,13 @@ $(document).ready(onReady);
 
 function onReady() {
     console.log('JQuery is loaded');
+    getCalculations();
     $('#addButton').on('click', addNumbers);
     $('#subtractButton').on('click', subtractNumbers);
     $('#multiplyButton').on('click', multiplyNumbers);
     $('#divideButton').on('click', divideNumbers);
     $('#clearButton').on('click', clearCalculations);
 }
-
 
 function addNumbers() {
     let newObject = {
