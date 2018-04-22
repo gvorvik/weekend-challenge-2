@@ -27,6 +27,8 @@ function addNumbers() {
         $('#answerSpan').text(`${response.result}`);
         getCalculations(); 
     });
+    x: $('#firstNumber').val('');
+    y: $('#secondNumber').val('');
 }
 
 function subtractNumbers() {
@@ -45,6 +47,8 @@ function subtractNumbers() {
         $('#answerSpan').text(`${response.result}`);
         getCalculations();        
     });
+    x: $('#firstNumber').val('');
+    y: $('#secondNumber').val('');
 }
 
 function multiplyNumbers() {
@@ -59,10 +63,11 @@ function multiplyNumbers() {
         data: newObject
     })
     .then(function(response) {
-        console.log(response);
         $('#answerSpan').text(`${response.result}`);
         getCalculations();        
     });
+    x: $('#firstNumber').val('');
+    y: $('#secondNumber').val('');
 }
 
 function divideNumbers() {
@@ -77,10 +82,11 @@ function divideNumbers() {
         data: newObject
     })
     .then(function(response) {
-        console.log(response);
         $('#answerSpan').text(`${response.result}`);
         getCalculations();        
     });
+    x: $('#firstNumber').val('');
+    y: $('#secondNumber').val('');
 }
 
 function getCalculations() {

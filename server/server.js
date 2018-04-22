@@ -54,11 +54,9 @@ app.get('/get-calculations', (req, res) => {
 });
 
 app.post('/clear-calculations', (req, res) => {
-    console.log(calculations);
     while(calculations.length > 0) {
         calculations.pop();
     }
-    console.log(calculations);
     res.sendStatus(200);
 });
 
